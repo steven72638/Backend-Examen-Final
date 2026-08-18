@@ -28,6 +28,6 @@ export class Pago {
   Numero_departamento!: string;
 
   @ManyToOne(() => Condomino, (c) => c.pagos, { onDelete: 'CASCADE', nullable: true })
-  @JoinColumn({ name: 'condomino_id' })
+  @JoinColumn({ name: 'Cedula_Condominio', referencedColumnName: 'Cedula_Condominio' })
   condomino?: Condomino;
 }

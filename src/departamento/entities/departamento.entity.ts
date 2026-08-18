@@ -17,7 +17,7 @@ export class Departamento {
   Numero_Bloque!: string;
 
   @ManyToOne(() => Bloque, (b) => b.departamentos, { onDelete: 'CASCADE', nullable: true })
-  @JoinColumn({ name: 'bloque_id' })
+  @JoinColumn({ name: 'Numero_Bloque', referencedColumnName: 'Numero_Bloque' })
   bloque?: Bloque;
 
   @OneToMany(() => Condomino, (c) => c.departamento)

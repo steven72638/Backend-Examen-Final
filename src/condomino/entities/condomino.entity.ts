@@ -29,7 +29,7 @@ export class Condomino {
   Numero_departamento!: string;
 
   @ManyToOne(() => Departamento, (dep) => dep.condominos, { onDelete: 'CASCADE', nullable: true })
-  @JoinColumn({ name: 'departamento_id' })
+  @JoinColumn({ name: 'Numero_departamento', referencedColumnName: 'Numero_departamento' })
   departamento?: Departamento;
 
   @OneToMany(() => Pago, (pago) => pago.condomino)
