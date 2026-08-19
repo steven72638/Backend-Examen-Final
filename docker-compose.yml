@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend-alicuotas
+      dockerfile: Dockerfile
+    container_name: backend-nest
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+
+  frontend:
+    build:
+      context: ./frontend-alicuotas
+      dockerfile: Dockerfile
+    container_name: frontend-angular
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
