@@ -4,7 +4,7 @@ import { Type } from 'class-transformer';
 export class CreatePagoDto {
   @IsNotEmpty()
   @IsString()
-  @Matches(/^\d{4}-\d{2}-\d{2}$/)
+  @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'El formato debe ser AAAA-MM-DD' })
   Fecha_pago!: string;
 
   @IsNotEmpty()
@@ -26,7 +26,7 @@ export class CreatePagoDto {
 
   @IsNotEmpty()
   @IsString()
-  @Matches(/^[0-9]{10}$/)
+  @Matches(/^\d{10}$/, { message: 'La cédula debe contener exactamente 10 dígitos' })
   Cedula_Condominio!: string;
 
   @IsNotEmpty()
